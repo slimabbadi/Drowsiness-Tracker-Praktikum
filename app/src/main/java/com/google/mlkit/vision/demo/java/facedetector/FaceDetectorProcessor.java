@@ -63,9 +63,9 @@ public class FaceDetectorProcessor extends VisionProcessorBase<List<Face>> {
     this.context = context;
     detector = FaceDetection.getClient(options);
     faceModel = new FaceModel();
-    //TODO
-    faceModel.addSubscriber(() -> showDialog());
-    faceModel.addSubscriber(() -> sendBeep());
+
+    //TODO die beiden Methoden showDialog() und sendBeep() zu faceModel hinzufügen
+
   }
 
   @Override
@@ -97,24 +97,16 @@ public class FaceDetectorProcessor extends VisionProcessorBase<List<Face>> {
 
 
   private void showDialog(){
-    //TODO
 
-    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-    AlertDialog alertDialog = builder
-      .setMessage("AUFWACHEN!")
-      .create();
+    // TODO: Erzeuge eine visuelle Komponente, um den Fahrer auf seine Schläfrigkeit hinzuweisen.
 
-    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-      (dialog, id) -> alertDialog.dismiss());
-    alertDialog.show();
+
   }
 
   private void sendBeep(){
-    //TODO
 
-    MediaPlayer player = MediaPlayer.create(context,
-            Settings.System.DEFAULT_ALARM_ALERT_URI);
-    player.start();
+    //TODO: Erzeuge einen Signalton, um den Fahrer auf seine Schläfrigkeit hinzuweisen.
+
   }
 
   @Override

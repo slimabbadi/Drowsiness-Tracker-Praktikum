@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FaceModel {
 
-	public static final float THRESHOLD = 100; //5000000000
+	public static final float THRESHOLD = 500000000;
 	private float diff = 0;
 	private final float decreaseFactor = 0.5f;
 
@@ -16,25 +16,14 @@ public class FaceModel {
 
 	public void updateEyeOpenProbabilities(float leftEye, float rightEye) {
 
-		//TODO
 
-		if(leftEye < 0.8f && rightEye < 0.8f) {
-			//Beide Augen sind höchstens zu 80% geöffnet
+		/* TODO: Finde eine Möglichkeit, diff entsprechend anzupassen, je nachdem wie sehr die Augen geschlossen sind (openProbability = 0).
+		     Lege dabei fest, wie schnell der Grenzwert (THRESHOLD) erreicht werden soll.
+		 */
 
-			//Durchschnitt von beiden Augen bilden
-			float mean = (leftEye + rightEye) / 2;
+		/* TODO: Lege den Grenzwert fest. Das sollte zusammen mit diff festgelegt werden.*/
 
-			//Den Anteil, zu dem die Augen geschlossen sind, aufaddieren
-			diff += (1 - mean);
-		} else {
-			//Beide Augen sind min. zu 80% geöffnet
 
-			//In dem Fall den Wert langsam dekrementieren
-			diff -= decreaseFactor;
-			if (diff < 0) {
-				diff = 0;
-			}
-		}
 
 		if (diff >= THRESHOLD) {
 			for (Subscriber subscriber : subscriberList) {

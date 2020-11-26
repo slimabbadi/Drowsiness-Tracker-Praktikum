@@ -233,13 +233,12 @@ public class FaceGraphic extends Graphic {
     drowsinessPaint.setColor(Color.WHITE);
     drowsinessPaint.setTextSize(32f);
 
-    //TODO
 
-    canvas.drawText(
-            percentage + " %"+ " Drowziness: " ,
-            right,
-            top,
-            drowsinessPaint);
+    /*TODO: Berechne den Prozentwert der drowsiness mit Hilfe des FaceModels
+        und zeige ihn bei den anderen Werten (smiling probability, etc.) an.*/
+
+
+
 
     // Draw facial landmarks
     drawFaceLandmark(canvas, FaceLandmark.LEFT_EYE);
